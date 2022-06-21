@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -72,6 +73,17 @@ WSGI_APPLICATION = 'repositorio.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+
+#DATABASES = {
+ #   'default': {
+  #      'ENGINE': 'django.db.backends.postgresql',
+  #      'NAME': 'repositorio',
+  #      'USER': 'root',
+  #      'PASSWORD': 'root',
+  #      'HOST': '127.0.0.1',
+  #      'PORT': '5432',
+  #  }
+#}
 
 DATABASES = {
     'default': {
