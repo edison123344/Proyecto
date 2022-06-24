@@ -11,3 +11,5 @@ def dowload(request):
    return render(request,"material/download.html")
 def list(request):
    return render(request,"material/list.html")
+def syllabus(request):
+   return render(request,"material/syllabus.html")
