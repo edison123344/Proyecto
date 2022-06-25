@@ -11,7 +11,7 @@
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <title>Repositorio</title>
-    {%load static%}
+    {% load static%}
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'core/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
@@ -24,82 +24,58 @@
     <link rel="stylesheet" href="{% static 'core/assets/css/search.css'%}">
 
   </head>
-<body>
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
+  <body>
+    <header class="header-area header-sticky">
       <div class="container">
-          <div class="row">
-              <div class="col-12">
-                  <nav class="main-nav">
-                      <!-- ***** Logo Start ***** -->
-                      <a href="{%url 'home'%}" class="logo">
-                          Proyecto Repocitorio
-                      </a>
-                      <!-- ***** Logo End ***** -->
-                      <!-- ***** Menu Start ***** -->
-                      <ul class="nav">
-                          <li><a href="{%url 'home'%}" class="active">Inicio</a></li>
-                          <li><a href="{%url 'about'%}">acerca de</a></li>  
-                          <li><a href="{%url 'contac'%}">Contacto</a></li> 
-                      </ul>        
-                      <a class='menu-trigger'>
-                          <span>Menu</span>
-                      </a>
-                      <!-- ***** Menu End ***** -->
-                  </nav>
-              </div>
+        <div class="row">
+          <div class="col-12">
+            <nav class="main-nav">
+              <a href="{%url 'home'%}" class="logo">Proyecto Repocitorio</a>
+                <ul class="nav">
+                  <li><a href="{% url 'home' %}" class="active">Inicio</a></li>
+                  <li><a href="{% url 'about' %}">acerca de</a></li>  
+                  <li><a href="{% url 'contac' %}">Contacto</a></li> 
+                </ul>        
+              <a class='menu-trigger'>
+                <span>Menu</span>
+              </a>
+            </nav>
           </div>
-      </div>
-  </header>
-  <section class="heading-page header-text" id="top">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-         {% block headers %}{% endblock %}
         </div>
       </div>
-    </div>
-  </section>
- {% block content %}{% endblock %}
- 
- <section class="contact-us" id="contact">
-  <div class="footer">
-    <footer class="footer-distributed">
-
-      <div class="footer-right">
-
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-linkedin"></i></a>
-        <a href="#"><i class="fa fa-github"></i></a>
-
+    </header>
+    {% block content %}{% endblock %}
+    <section class="contact-us" id="contact">
+      <div class="footer">
+        <footer class="footer-distributed">
+          <div class="footer-right">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+          </div>
+          <div class="categories">
+            <p class="footer-links">
+              <a class="link-1" href="{%url 'home'%}">Inicio</a> -
+              <a href="{%url 'contac'%}">Contacto</a> -
+              <a href="{%url 'about'%}">Aserca de</a>
+            </p>
+            <p>Nombre compania&copy; 2022</p>
+          </div>
+        </footer>
       </div>
+    </section>
 
-      <div class="categories">
-        <p class="footer-links">
-          <a class="link-1" href="{%url 'home'%}">Inicio</a> -
-          <a href="{%url 'contac'%}">Contacto</a> -
-          <a href="{%url 'about'%}">Aserca de</a>
-        </p>
-        <p>Nombre compania&copy; 2022</p>
-      </div>
-
-    </footer>
-    </div>
-  </section>
-
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
     <script src="{% static 'core/vendor/jquery/jquery.min.js'%}"></script>
     <script src="{% static 'core/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
-
     <script src="{% static 'core/assets/js/isotope.min.js'%}"></script>
     <script src="{% static 'core/assets/js/owl-carousel.js'%}"></script>
     <script src="{% static 'core/assets/js/lightbox.js'%}"></script>
     <script src="{% static 'core/assets/js/tabs.js'%}"></script>
     <script src="{% static 'core/assets/js/video.js'%}"></script>
     <script src="{% static 'core/assets/js/slick-slider.js'%}"></script>
-    <script src="{% static 'core/assets/js/custom.js'%}"></script>
-    
-</body>
+    <script src="{% static 'core/assets/js/custom.js'%}"></script>   
+  </body>
 </html>

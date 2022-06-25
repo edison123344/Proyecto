@@ -1,101 +1,41 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content="" />
-    <meta name="author" content="Template Mo" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
-      rel="stylesheet"
-    />
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <title>Education - List of Meetings</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css" />
-    <link rel="stylesheet" href="assets/css/templatemo-edu-meeting.css" />
-    <link rel="stylesheet" href="assets/css/owl.css" />
-    <link rel="stylesheet" href="assets/css/lightbox.css" />
-    <link rel="stylesheet" href="assets/css/search.css">
-
-
-  </head>
-
-  <body>
-    <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <nav class="main-nav">
-              <!-- ***** Logo Start ***** -->
-              <a href="index.html" class="logo"> Proyecto Repocitorio </a>
-              <!-- ***** Logo End ***** -->
-              <!-- ***** Menu Start ***** -->
-              <ul class="nav">
-                <li><a href="index.html" class="active">Inicio</a></li>
-                <li><a href="about.html">acerca de</a></li>
-                <li><a href="contac.html">Contacto</a></li>
-              </ul>
-              <a class="menu-trigger">
-                <span>Menu</span>
-              </a>
-              <!-- ***** Menu End ***** -->
-            </nav>
-          </div>
+{% extends 'core/base.html'%}
+{% load static%}
+{% block content %}
+  <section class="heading-page header-text" id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h6>Lista</h6>
+          <h2>Repocitorios</h2>
         </div>
       </div>
-    </header>
-    <!-- ***** Header Area End ***** -->
-
-    <section class="heading-page header-text" id="top">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <h6>Lista</h6>
-            <h2>Repocitorios</h2>
-          </div>
-        </div>
-      </div>
-
-         <div class="section-heading">
-             <div class="container h-100">
-            <div class="d-flex justify-content-center h-100">
-              <div class="searchbar">
-                <input class="search_input" type="text" name="" placeholder="Buscar...">
-                <a href="list.html" class="search_icon"><i class="fas fa-search"></i></a>
-              </div>
-            </div>
-          </div>
-          
-    </section>
+    </div>         
+  </section>
 
  <section class="meetings-page" id="meetings">
         <div class="col-lg-12">
           <div class="section-heading" align="center">
             <h2>Resultados de busqueda</h2>
+            <div class="container h-100">
+              <div class="d-flex justify-content-center h-100">
+                <div class="searchbar">
+                  <input class="search_input" type="text" name="" placeholder="Buscar...">
+                  <a href="list.html" class="search_icon"><i class="fas fa-search"></i></a>
+                </div>
+              </div>
           </div> 
          </div>
   </section>
-
     <section class="meetings-page" id="meetings">
-
       <div class="container">
         <div class="row">
           <div class="align-self-center">
             <div class="accordions is-first-expanded">
               <div class=" col-lg-3">
                 <a href="descriptionRep.html">
-                  <img
-                    
-                    src="assets/images/meeting-02.jpg "
+                  <img                  
+                    src="{% static 'core/assets/images/meeting-02.jpg'%} "
                     alt=""
                   />
                 </a>
@@ -129,9 +69,8 @@
             <div class="accordions is-first-expanded">
               <div class=" col-lg-3">
                 <a href="#">
-                  <img
-                    
-                    src="assets/images/meeting-02.jpg "
+                  <img                  
+                    src="{% static 'core/assets/images/meeting-02.jpg'%} "
                     alt=""
                   />
                 </a>
@@ -156,59 +95,21 @@
         </div>
       </div>
     </section>
-<section class="meetings-page" id="meetings">
+  <section class="meetings-page" id="meetings">
     <div class="container">
       <div class="row">
         <div class="col-lg-12"> 
-              <div class="pagination">
-                <ul>
-                  <li><a href="#">1</a></li>
-                  <li class="active"><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                </ul>
+          <div class="pagination">
+            <ul>
+              <li><a href="#">1</a></li>
+              <li class="active"><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
-
   </section>
-    <section class="contact-us" id="contact">
-
-      <div class="footer">
-        <footer class="footer-distributed">
-          <div class="footer-right">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-github"></i></a>
-          </div>
-
-          <div class="categories">
-            <p class="footer-links">
-              <a class="link-1" href="index.html">Inicio</a> -
-              <a href="contac.html">Contacto</a> -
-
-              <a href="about.html">Aserca de</a>
-            </p>
-            <p>Nombre compania &copy; 2015</p>
-          </div>
-        </footer>
-      </div>
-    </section>
-
-    <!-- Scripts -->
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <script src="assets/js/isotope.min.js"></script>
-    <script src="assets/js/owl-carousel.js"></script>
-    <script src="assets/js/lightbox.js"></script>
-    <script src="assets/js/tabs.js"></script>
-    <script src="assets/js/isotope.js"></script>
-    <script src="assets/js/video.js"></script>
-    <script src="assets/js/slick-slider.js"></script>
-    <script src="assets/js/custom.js"></script>
-  </body>
-</html>
+{% endblock %}
+    
