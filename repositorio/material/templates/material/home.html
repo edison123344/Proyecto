@@ -21,6 +21,7 @@
       </div>
     </div>
   </section>
+  
   <section class="upcoming-meetings" id="meetings">
     <div class="container">
       <div class="row">
@@ -44,62 +45,39 @@
         <div class="col-lg-4">
           <div class="categories">
             <h4>Tendencia</h4>
-
+            {% for temas in temas %}
             <ul>
-              <li><a href="#">Matematica</a></li><br> 
-
-              <li><a href="#">Quimica</a></li><br>
-              <li><a href="descriptionRep.html">Calculo</a></li><br>
-              <li><a href="#">Algebra</a></li><br>
-              <li><a href="#">Programacion</a></li><br>
+              <li><a href="#">{{temas.title}}</a></li><br> 
             </ul>
-    
+            {% endfor %}
           </div>
         </div>
         <div class="col-lg-8">
           <div class="row">
-            
-
+            {% for temas in temas %}
+            {% for material in temas.material.all %}
+            {% if material%}
             <div class="col-lg-6">
               <div class="meeting-item">
                 <div class="thumb">
-                  <div class="price">
-                    <span>N.1</span>
-                  </div>
-                  <a href="descriptionRep.html"><img src="{% static 'core/assets/images/meeting-01.jpg'%}" alt="New Lecturer Meeting"></a>
+                  <a href="descriptionRep.html"><img src="{{material.image.url}}" alt="#"></a>
                 </div>
                 <div class="down-content">
                   <div class="date">
-                    <h6>Nov <span>10</span></h6>
+                    <h6> {{material.updated|date:'M'}}<span>{{material.updated|date:'d'}}</span></h6>
                   </div>
-                  <a href="descriptionRep.html"><h4>Calculo</h4></a>
-                  <p>contenedor de la materia <br>de calculo.</p>
+                  <a href="#"><h4>{{material.title}}</h4></a>
+                  <p>{{material.persona}}</p>
                 </div>
               </div>
             </div>
-
-            <div class="col-lg-6">
-              <div class="meeting-item">
-                <div class="thumb">
-                  <div class="price">
-                    <span>N.2</span>
-                  </div>
-                  <a href="descriptionRep.html"><img src="{% static 'core/assets/images/meeting-02.jpg'%}" alt="Online Teaching"></a>
-                </div>
-                <div class="down-content">
-                  <div class="date">
-                    <h6>Nov <span>24</span></h6>
-                  </div>
-                  <a href="descriptionRep.html"><h4>Fisica</h4></a>
-                  <p>Contenedor de la materia<br>de fisica.</p>
-                </div>
-              </div>
-            </div>
-            
+            {% endif %}
+            {% endfor %}{% endfor %}
           </div>
         </div>
       </div>
     </div>
   </section>
+  
 {% endblock %}
   

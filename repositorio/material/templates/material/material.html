@@ -1,11 +1,14 @@
 {% extends 'core/base.html' %}
 {% block content %}
+
   <section class="heading-page header-text" id="top">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
+          {% for mat in material  %} 
           <h6>Materia</h6>
-          <h2>Calculo</h2>
+          <h2>{{mat.title}}</h2>
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -23,26 +26,23 @@
               <li><a href="document.html">Material</a></li><br>
             </ul>
           </div>
-        </div>
+        </div> 
     <div class="col-lg-9">
               <div class="meeting-single-item">
                 <div class="thumb">
-                  <a href="#"><img src="assets/images/single-meeting.jpg" alt=""></a>
+                  <a href="#"><img src="#" alt=""></a>
                 </div>
                 <div class="down-content">
                   <a href="meeting-details.html"><h4>Descripcion</h4></a>
                   <p class="description">
-                    En general el término cálculo (del latín calculus, piedrecita, usado para contar o como ayuda al calcular) 
-                    hace referencia al resultado correspondiente a la acción de calcular. Calcular, por su parte, consiste en 
-                    realizar las operaciones necesarias para prever el resultado de una acción previamente 
-                    
+                    5               
                   </p>
                   
                   <div class="col-lg-4">
                     <div class="author">
                       <h5>author:</h5><br>
                       <ul>
-                        <li><a href="list.html">Edison huinaizaca</a></li>
+                        <li><a href="list.html"></a>5</li>
     
                       </ul>
                     </div>
@@ -52,14 +52,14 @@
                     <div class="col-lg-4">
                       <div class="hours">
                         <h5>Fecha publicacion</h5>
-                        <p>10 - Marzo - 2022</p>
+                        <p>5</p>
                       </div>
                     </div>
               
                     <div class="col-lg-4">
                       <div class="curso">
-                        <h5>Numero de cursoo</h5>
-                        <p>010-020-0340</p>
+                        <h5>Numero de curso</h5>
+                        <p>9</p>
                       </div>
                     </div>
                     <div class="col-lg-4">
@@ -93,15 +93,16 @@
                           </ul>
                         </div>
                       </div>
-                      </div>
-                    
-                  
+                      </div> 
                 </div>
                 </div>
               </div>
             </div>
+           
       </div>
     </div>
+
   </section>
+  
 {% endblock%}  
   

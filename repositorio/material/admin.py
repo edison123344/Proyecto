@@ -1,8 +1,9 @@
 from pyexpat import model
 from django.contrib import admin
-from .models import material, carrera ,contenido, silabo ,titulo, persona, silabo
+from .models import Material, Carrera ,Contenido, Silabo ,Titulo, Persona, Silabo,Tema
 
 # Register your models here.
+
 class MaterialAdmin(admin.ModelAdmin):
   readonly_fields = ('created', 'updated')
 class CarreraAdmin(admin.ModelAdmin):
@@ -15,10 +16,13 @@ class PersonaAdmin(admin.ModelAdmin):
   readonly_fields = ('created', 'updated')
 class SilaboAdmin(admin.ModelAdmin):
   readonly_fields = ('created', 'updated')
+class TemaAdmin(admin.ModelAdmin):
+  readonly_fields = ('created', 'updated')
  
-admin.site.register(material, MaterialAdmin)
-admin.site.register(carrera,CarreraAdmin)
-admin.site.register(contenido,ContenidoAdmin)
-admin.site.register(titulo,TituloAdmin)
-admin.site.register(persona,PersonaAdmin)
-admin.site.register(silabo,SilaboAdmin)
+admin.site.register(Material, MaterialAdmin)
+admin.site.register(Carrera,CarreraAdmin)
+admin.site.register(Contenido,ContenidoAdmin)
+admin.site.register(Titulo,TituloAdmin)
+admin.site.register(Persona,PersonaAdmin)
+
+admin.site.register(Tema,TemaAdmin)
