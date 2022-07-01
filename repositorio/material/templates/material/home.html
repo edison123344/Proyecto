@@ -44,35 +44,42 @@
         </div>
         <div class="col-lg-4">
           <div class="categories">
-            <h4>Tendencia</h4>
-            {% for temas in temas %}
+            <h4>Temas</h4>
+            {% for tema in temas.all %}
             <ul>
-              <li><a href="#">{{temas.title}}</a></li><br> 
+              <li><a href="#">{{tema.title}}</a></li><br> 
             </ul>
             {% endfor %}
           </div>
         </div>
         <div class="col-lg-8">
           <div class="row">
-            {% for temas in temas %}
-            {% for material in temas.material.all %}
-            {% if material%}
+            
+            {% for material in material.all %}
+           
             <div class="col-lg-6">
               <div class="meeting-item">
                 <div class="thumb">
-                  <a href="descriptionRep.html"><img src="{{material.image.url}}" alt="#"></a>
+                  <a href="{% url 'material' material.id %}"><img src="{{material.image.url}}" alt="#"></a>
                 </div>
                 <div class="down-content">
                   <div class="date">
                     <h6> {{material.updated|date:'M'}}<span>{{material.updated|date:'d'}}</span></h6>
                   </div>
-                  <a href="#"><h4>{{material.title}}</h4></a>
+                  <a href="{% url 'material' material.id %}"><h4>{{material.title}}</h4></a>
+                  <h6>Autor:<h6>
                   <p>{{material.persona}}</p>
+                  <h6>Teamas relacionados:</h6>
+                  {% for tema in material.get_posts.all %}
+                  <ul>
+                    <li><a href="#"><h7>{{tema.title}}</h7></a></li>
+                  </ul>
+                  {% endfor %}
                 </div>
               </div>
             </div>
-            {% endif %}
-            {% endfor %}{% endfor %}
+           
+            {% endfor %}
           </div>
         </div>
       </div>

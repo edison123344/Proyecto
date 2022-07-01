@@ -87,7 +87,7 @@ class Material(models.Model):
     contenido = models.ForeignKey(Contenido, verbose_name="Contenido", on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
-
+    
     class Meta:
         verbose_name = "material"
         verbose_name_plural = "materiales"
