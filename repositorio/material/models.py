@@ -16,24 +16,6 @@ class Carrera(models.Model):
 
     def __str__(self):
         return self.carrera
-def user_directory_path(instance, filename):
-    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
-    return 'contenido_{0}/{1}'.format(instance.user.id, filename)
-    
-class Contenido(models.Model):
-    
-    name = models.CharField(max_length=200,verbose_name="Tipo del Contenido")
-    uploadedFile = models.FileField(upload_to = "Contenido/",blank=True,null=True)
-    created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
-    updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
-
-    class Meta:
-        verbose_name = "contenido"
-        verbose_name_plural = "contenidos"
-        ordering = ['name']
-
-    def __str__(self):
-        return self.name
 class Titulo(models.Model):
     
     name = models.CharField(max_length=200,verbose_name="Titulo")
@@ -63,17 +45,35 @@ class Persona(models.Model):
 
     def __str__(self):
         return self.name
-class Silabo(models.Model):
+def user_directory_path(instance, filename):
+    # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+    return 'contenido_{0}/{1}'.format(instance.user.id, filename)
     
-    name = models.CharField(max_length=200,verbose_name="Nombre Tema")
-    descripcion = models.TextField(verbose_name="Descripcion")
-    carrera = models.ForeignKey(Carrera, verbose_name="Carrera", on_delete=models.CASCADE)
+class Contenido(models.Model):
+    
+    name = models.CharField(max_length=200,verbose_name="Nombre del Contenido")
+    uploadedFile = models.FileField(upload_to = "Contenido/",blank=True,null=True)
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
 
     class Meta:
-        verbose_name = "silabo"
-        verbose_name_plural = "silabos"
+        verbose_name = "contenido"
+        verbose_name_plural = "contenidos"
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name
+class TemasContenido(models.Model):
+    
+    name = models.CharField(max_length=200,verbose_name="Tipo del Contenido")
+    descripcion = models.TextField( verbose_name="Descripcion")
+    contenido = models.ManyToManyField(Contenido, verbose_name="Contenido", related_name="get_posts",blank=True)
+    created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
+    updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
+
+    class Meta:
+        verbose_name = "tipocontenido"
+        verbose_name_plural = "tiposcontenidos"
         ordering = ['name']
 
     def __str__(self):
@@ -83,8 +83,7 @@ class Material(models.Model):
     descripcion = models.TextField( verbose_name="Descripcion")
     image = models.ImageField(verbose_name="Imagen", upload_to="materia", null=True, blank=True)
     persona = models.ForeignKey(Persona, verbose_name="Autor", on_delete=models.CASCADE)
-    silabo = models.ForeignKey(Silabo, verbose_name="Silabo", on_delete=models.CASCADE)
-    contenido = models.ForeignKey(Contenido, verbose_name="Contenido", on_delete=models.CASCADE)
+    contenido = models.ManyToManyField(TemasContenido, verbose_name="Contenido", related_name="get_posts")
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
     

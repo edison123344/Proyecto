@@ -19,6 +19,14 @@
             <div class="categories"> 
                 <h4>Lista</h4>
                 <ul>
+                  {% for material in temasContenido.get_posts.all %}         
+                    <li><a href="{% url 'material' material.id %}">Informacion</a></li><br> 
+                    {% endfor %}
+                    {% for temasContenido in temasContenido.get_posts.all %} 
+                    {% for contenido in temasContenido.contenido.all %}                
+                    <li><a href="{% url 'temasContenido' contenido.id %}">{{contenido.name}}</a></li><br> 
+                    {% endfor %}
+                    {% endfor %}
                     <li><a href="descriptionRep.html">información</a></li><br> 
                     <li><a href="syllabus.html">Silabo </a></li><br>
                     <li><a href="document.html">Lecturas</a></li><br>

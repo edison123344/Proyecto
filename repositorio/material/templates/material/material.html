@@ -16,12 +16,10 @@
     <div class="row">
       <div class="col-lg-3">
         <div class="categories">
-          <h4>Lista</h4>
-          <ul>
-            <li><a href="descriptionRep.html">Informacion</a></li><br> 
-            <li><a href="syllabus.html">Silabo </a></li><br>
-            <li><a href="document.html">Lecturas</a></li><br>
-            <li><a href="document.html">Material</a></li><br>
+          <h4>Indice</h4>
+          {% for contenido in material.contenido.all %}
+            <li><a href="{% url 'temasContenido' contenido.id %}"><p>{{contenido.name}}</p></a></li><br>             
+            {% endfor %}
           </ul>
         </div>
       </div>
@@ -66,7 +64,7 @@
                       <h5>Temas Relacionados:</h5><br>
                       {% for tema in material.get_posts.all %}
                       <ul>
-                        <li><a href="#">1{{tema.title}} 1</a>-</li>
+                        <li><a href="#">{{tema.title}}</a></li>
                       </ul>
                       {% endfor %}
                     </div>
