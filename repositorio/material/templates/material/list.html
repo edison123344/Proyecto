@@ -21,95 +21,73 @@
               <div class="d-flex justify-content-center h-100">
                 <div class="searchbar">
                   <input class="search_input" type="text" name="" placeholder="Buscar...">
-                  <a href="list.html" class="search_icon"><i class="fas fa-search"></i></a>
+                  <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
                 </div>
               </div>
           </div> 
          </div>
   </section>
+    {% for tema in temas.all %}
+    {% for material in tema.material.all %}
     <section class="meetings-page" id="meetings">
       <div class="container">
-        <div class="row">
-          <div class="align-self-center">
-            <div class="accordions is-first-expanded">
-              <div class=" col-lg-3">
-                <a href="descriptionRep.html">
-                  <img                  
-                    src="{% static 'core/assets/images/meeting-02.jpg'%} "
-                    alt=""
-                  />
-                </a>
-              </div>
-               
-              <div  align="left" class="col-lg-12">
-              
-              <div class="date">
-                    <h6>Nov 26</h6>
+        <div class=" col-lg-12">
+          <div class="accordions ">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-4 ">
+                  <a href="#">
+                    <img src="{{material.image.url}} "/>
+                  </a>
                 </div>
-                <h2> Repocitorios</h2>
-                <h4>Edison</h4>
-                <a href="descriptionRep.html"><p>
-                  If you want to get the latest collection of HTML CSS templates
-                  for your websites, you may visit Too CSS website. If you need
-                  a working contact form script, please visit our contact page
-                  for more info.
-                </p></a>
+                <div class="col-sm-8">
+                  <h6> Repocitorios:</h6>
+                  <h5> {{material.title}}</h5>
+                  <h6>Fecha:</h6>
+                  <p>{{material.updated|date:'d'}}-{{material.updated|date:'M'}}-{{material.updated|date:'y'}}</p>
+                  <h6>Nombre del autor:</h6>
+                  <p>{{material.persona}}</p>
+                  <h6>Temas relacionados:</h6>
+                  <a href="#"><p>  {{tema.title}} </p></a>
+                </div>
               </div>
-            
             </div>
           </div>
-        </div>
+        </div>  
       </div>
     </section>
-
+    {% endfor %}
+    {% endfor %}
+    {% for material in materiales.all %}
     <section class="meetings-page" id="meetings">
       <div class="container">
-        <div class="row">
-          <div class="align-self-center">
-            <div class="accordions is-first-expanded">
-              <div class=" col-lg-3">
-                <a href="#">
-                  <img                  
-                    src="{% static 'core/assets/images/meeting-02.jpg'%} "
-                    alt=""
-                  />
-                </a>
-              </div>
-               
-              <div  align="left" class="col-lg-12">
-              <div class="date">
-                    <h6>Nov 26</h6>
+        <div class=" col-lg-12">
+          <div class="accordions ">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-4 ">
+                  <a href="#">
+                    <img src="{{material.image.url}} "/>
+                  </a>
                 </div>
-                <h2> Repocitorios</h2>
-                <h4>Edison</h4>
-                <p>
-                  If you want to get the latest collection of HTML CSS templates
-                  for your websites, you may visit Too CSS website. If you need
-                  a working contact form script, please visit our contact page
-                  for more info.
-                </p>
+                <div class="col-sm-8">
+                  <h6> Repocitorios:</h6>
+                  <h5> {{material.title}}</h5>
+                  <h6>Fecha:</h6>
+                  <p>{{material.updated|date:'d'}}-{{material.updated|date:'M'}}-{{material.updated|date:'y'}}</p>
+                  <h6>Nombre del autor:</h6>
+                  <p>{{material.persona}}</p>
+                  <h6>Temas relacionados:</h6>
+                  {% for tema in material.get_posts.all %}
+                  <a href="#"><p>  {{tema.title}} </p></a>
+                  {% endfor %}
+                </div>
               </div>
-            
             </div>
           </div>
-        </div>
+        </div>  
       </div>
     </section>
-  <section class="meetings-page" id="meetings">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12"> 
-          <div class="pagination">
-            <ul>
-              <li><a href="#">1</a></li>
-              <li class="active"><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    {% endfor %}
 {% endblock %}
     

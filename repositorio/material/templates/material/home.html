@@ -1,6 +1,7 @@
 {% extends 'core/base.html'%}
 {% load static%}
 {% block content %}
+<form action="{%url 'list' %}" method="GET" id="buscar">
   <section class="section main-banner" id="top" data-section="section1">
     <a href="meeting-details.html"><img src="{% static 'core/assets/images/meeting-01.jpg'%}" alt="New Lecturer Meeting"></a>
     <div class="video-overlay header-text">
@@ -21,25 +22,23 @@
       </div>
     </div>
   </section>
-  
   <section class="upcoming-meetings" id="meetings">
     <div class="container">
       <div class="row">
-        <div class="col-lg-12">
-          
+        <div class="col-lg-12">         
           <div class="section-heading">
              <div class="container h-100">
             <div class="d-flex justify-content-center h-100">
+             
               <div class="searchbar">
-                <input class="search_input" type="text" name="" placeholder="Buscar...">
-                <a href="list.html" class="search_icon"><i class="fas fa-search"></i></a>
+                <input class="search_input" type="text" name="buscar" placeholder="Buscar..." id="buscar">
+               
+                <input class="searchbar search_icon" type="submit" value="Buscar" >
               </div>
+      
             </div>
           </div>
-
             <h2>Repocitorios</h2>
-
-
           </div>
         </div>
         <div class="col-lg-4">
@@ -55,8 +54,7 @@
         <div class="col-lg-8">
           <div class="row">
             
-            {% for material in material.all %}
-           
+            {% for material in material.all %}          
             <div class="col-lg-6">
               <div class="meeting-item">
                 <div class="thumb">
@@ -85,6 +83,6 @@
       </div>
     </div>
   </section>
-  
+</from>
 {% endblock %}
   
