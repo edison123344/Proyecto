@@ -26,7 +26,7 @@
   <div class="col-lg-9">
             <div class="meeting-single-item">
               <div class="thumb">
-                <a href="#"><img src="{{material.image.url}}" alt=""></a>
+                <a href="{% url 'material' material.id %}"><img src="{{material.image.url}}" alt=""></a>
               </div>
               <div class="down-content">
                 <a href="meeting-details.html"><h4>Descripcion</h4></a>
@@ -39,7 +39,7 @@
                   <div class="author">
                     <h5>author:</h5><br>
                     <ul>
-                      <li><a href="#">{{material.persona}}</a></li>
+                      <li><a href="{%url 'list' %}?buscar={{material.persona}}">{{material.persona}}</a></li>
   
                     </ul>
                   </div>
@@ -64,7 +64,7 @@
                       <h5>Temas Relacionados:</h5><br>
                       {% for tema in material.get_posts.all %}
                       <ul>
-                        <li><a href="#">{{tema.title}}</a></li>
+                        <li><a href="{%url 'list' %}?buscar={{tema.title}}">{{tema.title}}</a></li>
                       </ul>
                       {% endfor %}
                     </div>
@@ -93,7 +93,6 @@
     </div>
   </div>
 </section>
-
-  
+ 
 {% endblock%}  
   

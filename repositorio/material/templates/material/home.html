@@ -31,8 +31,7 @@
             <div class="d-flex justify-content-center h-100">
              
               <div class="searchbar">
-                <input class="search_input" type="text" name="buscar" placeholder="Buscar..." id="buscar">
-               
+                <input class="search_input" type="text" name="buscar" placeholder="Buscar..." id="buscar">          
                 <input class="searchbar search_icon" type="submit" value="Buscar" >
               </div>
       
@@ -45,8 +44,11 @@
           <div class="categories">
             <h4>Temas</h4>
             {% for tema in temas.all %}
+            
             <ul>
-              <li><a href="#">{{tema.title}}</a></li><br> 
+              <li><a href="{%url 'list' %}?buscar={{tema.title}}">{{tema.title}}</a></li><br> 
+
+              <!--{%url 'list' %}?buscar=-->
             </ul>
             {% endfor %}
           </div>
