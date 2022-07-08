@@ -1,90 +1,89 @@
 {% extends 'core/base.html'%}
 {% load static%}
-{% block content %}
-<form action="{%url 'list' %}" method="GET" id="buscar">
-  <section class="section main-banner" id="top" data-section="section1">
-    <a href="meeting-details.html"><img src="{% static 'core/assets/images/meeting-01.jpg'%}" alt="New Lecturer Meeting"></a>
-    <div class="video-overlay header-text">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="caption">
-              <h6>Bienbenido</h6>
-              <h2>Razon de la aplicacion</h2>
-              <p>
-              La razón de la implementación de esta aplicación web es permintir almacenar recursos académicos 
-              para poder adaptarse a los tiempos modernos , además de que al implementar esta aplicacion  se está
-              aportando a la creación de más contenido útil para el uso de los estudiantes interesados en la autoeducación.
-              <a rel="nofollow" href="#" target="_blank">Mas informacion....</a></p>     
+{% block content %}   
+    
+    <section class="pt-6 bg-600" id="home">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-5 col-lg-6 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 w-100" src="{% static 'core/assets/img/gallery/hero-header.png'%}" width="470" alt="hero-header" /></div>
+            <div class="col-md-7 col-lg-6 text-md-start text-center py-6">
+              <h4 class="fw-bold font-sans-serif">RAZON DE LA APLICACION</h4>
+              <h5 class=" mb-5">La siguiente aplicación web es está enfocada
+                 en permitir almacenar recursos académicos para estudiantes y 
+                 publico en general que quieran aprender, además de ofrecer
+                  contenido útil para el aprendizaje y el desarrollo personal.</h5>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <section class="upcoming-meetings" id="meetings">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">         
-          <div class="section-heading">
-             <div class="container h-100">
-            <div class="d-flex justify-content-center h-100">
-             
-              <div class="searchbar">
-                <input class="search_input" type="text" name="buscar" placeholder="Buscar..." id="buscar">          
-                <input class="searchbar search_icon" type="submit" value="Buscar" >
-              </div>
-      
-            </div>
-          </div>
-            <h2>Repocitorios</h2>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="categories">
-            <h4>Temas</h4>
-            {% for tema in temas.all %}
-            
-            <ul>
-              <li><a href="{%url 'list' %}?buscar={{tema.title}}">{{tema.title}}</a></li><br> 
-
-              <!--{%url 'list' %}?buscar=-->
-            </ul>
-            {% endfor %}
-          </div>
-        </div>
-        <div class="col-lg-8">
+      </section>
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="py-0" style="margin-top:-5.8rem">
+        <div class="container">
           <div class="row">
-            
-            {% for material in material.all %}          
-            <div class="col-lg-6">
-              <div class="meeting-item">
-                <div class="thumb">
-                  <a href="{% url 'material' material.id %}"><img src="{{material.image.url}}" alt="#"></a>
-                </div>
-                <div class="down-content">
-                  <div class="date">
-                    <h6> {{material.updated|date:'M'}}<span>{{material.updated|date:'d'}}</span></h6>
-                  </div>
-                  <a href="{% url 'material' material.id %}"><h4>{{material.title}}</h4></a>
-                  <h6>Autor:<h6>
-                  <p>{{material.persona}}</p>
-                  <h6>Teamas relacionados:</h6>
-                  {% for tema in material.get_posts.all %}
-                  <ul>
-                    <li><a href="#"><h7>{{tema.title}}</h7></a></li>
-                  </ul>
-                  {% endfor %}
+            <div class="card card-span bg-secondary">
+              <div class="card-body">
+                <div class="row flex-center gx-0">
+                  <div class="col-lg-4 col-xl-2 text-center text-xl-start"><img src="{% static 'core/assets/img/gallery/searching.png'%}" width="20" alt="..." /></div>
+                  <form class="d-flex my-3 d-block" action="{% url 'list' %}" method="GET" id="buscar" >
+                    <input class="form-control" type="text" placeholder="Buscar...."  name="buscar"  id="buscar"></input>
+                    <button class="btn btn-outline-primary" type="submit" value="buscar">Buscar</button>        
+                  </form>
                 </div>
               </div>
             </div>
-           
-            {% endfor %}
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-</from>
+        <!-- end of .container-->
+      </section>
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section>
+
+        <div class="container">
+          <div class="row ">
+            <div class="col-lg-2 ">
+              <div class="card">
+                <div class="card-body px-4 py-6 py-md-5 py-lg-6">
+                  <p class="text-muted mb-2 my-md-3">Temas Relacionados</p>
+                  <hr class="border border-1" />
+                  <ul class="list-unstyled">
+                    {% for tema in temas.all %}          
+                    <li class="mb-3"><i class=" text-info me-2"></i><a class="nav-link" aria-current="page" href="{%url 'list' %}?buscar={{tema.title}}">{{tema.title}}</a></li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8 col-lg-10">
+              <div class="row">
+
+                {% for material in material.all %}       
+
+                <div class="col-md-4 mb-4">
+                  <div class="card h-100"><a href="{% url 'material' material.id %}"><img class="card-img-top w-100" src="{{material.image.url}}" alt="courses" /></a>
+                    <div class="card-body">
+                      <a href="{% url 'material' material.id %}"><h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">{{material.title}}</h5></a>
+                      <h6>Hecho Por:</h6>
+                      <a class="text-muted fs--1 stretched-link text-decoration-none" href="{% url 'material' material.id %}">{{material.persona}} </a>
+                      <h6>Fecha publicación:</h6>
+                      <p class="text-muted fs--1">{{material.updated|date:'d'}}-{{material.updated|date:'M'}}-{{material.updated|date:'y'}}</p>
+                    </div>
+                    <h6>Temas relacionados:</h6>
+                    {% for tema in material.get_posts.all %}
+                    <div class="card col-md-12 mb-12">                     
+                      <p class="text-muted fs--1"><a class="text-muted fs--1 stretched-link text-decoration-none"  href="{%url 'list' %}?buscar={{tema.title}}"> {{tema.title}}</a></p>
+                    </div>
+                    {% endfor %}
+                  </div>
+                </div>
+                
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+      </section>
 {% endblock %}
-  
+   

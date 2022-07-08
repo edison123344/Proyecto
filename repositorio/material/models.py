@@ -1,7 +1,8 @@
+from ipaddress import ip_address
 from turtle import back
 from django.db import models
 from django.utils.timezone import now
-
+from ckeditor.fields import RichTextField
 # Create your models here.
 class Carrera(models.Model):
     carrera = models.CharField(max_length=200,verbose_name="Carrera")
@@ -66,7 +67,7 @@ class Contenido(models.Model):
 class TemasContenido(models.Model):
     
     name = models.CharField(max_length=200,verbose_name="Tipo del Contenido")
-    descripcion = models.TextField( verbose_name="Descripcion")
+    descripcion = RichTextField( verbose_name="Descripcion")
     contenido = models.ManyToManyField(Contenido, verbose_name="Contenido", related_name="get_posts",blank=True)
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
@@ -80,7 +81,7 @@ class TemasContenido(models.Model):
         return self.name
 class Material(models.Model):
     title = models.CharField(max_length=200,verbose_name="Titulo de la materia")
-    descripcion = models.TextField( verbose_name="Descripcion")
+    descripcion = RichTextField( verbose_name="Descripcion")
     image = models.ImageField(verbose_name="Imagen", upload_to="materia", null=True, blank=True)
     persona = models.ForeignKey(Persona, verbose_name="Autor", on_delete=models.CASCADE)
     contenido = models.ManyToManyField(TemasContenido, verbose_name="Contenido", related_name="get_posts")

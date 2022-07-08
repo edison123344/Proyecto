@@ -41,7 +41,7 @@
                     <div class="down-content">
                         <h4>Descripcion</h4>
                         <p>
-                            {{temasContenido.descripcion}}
+                            {{temasContenido.descripcion|safe}}
                         </p>
                         {% if temasContenido.contenido.all%}
                         <div class="row">
