@@ -92,6 +92,7 @@ class Material(models.Model):
         verbose_name = "material"
         verbose_name_plural = "materiales"
         ordering = ['title']
+    
 
     def __str__(self):
         return self.title
