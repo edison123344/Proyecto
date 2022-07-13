@@ -1,0 +1,63 @@
+{% extends 'core/base.html'%}
+ 
+{% block content%}   
+
+<section class="pb-11 pt-7 bg-600">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h6 class="font-sans-serif text-primary fw-bold">Titulo</h6>
+          <h1 class="mb-6">{{material.title}}</h1>
+        </div>
+      </div>
+    </div>
+    <!-- end of .container-->
+
+  </section>
+<section style="margin-top:-21.5rem">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card">
+            <h5 class="my-4 text-center">Recursos</h5>
+            <ul class="list-group list-group-flush">          
+              <li class="list-group-item"><a class="text-info" href="{% url 'contentDescription' material.id %}">Informacion</a></li>
+              {% for contenido in material.get_posts.all %}   
+                <li class="list-group-item"><a class="text-info" href="{% url 'content' contenido.id %}">{{contenido.name}}</a></li>
+              {% endfor %}
+              
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6"><img class="w-100" src="{{material.image.url}}" alt="..." />
+          <h1 class="my-4">Description</h1>
+          {{material.descripcion|safe}}
+    
+          
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Autor</strong>: {{material.persona}}</li>
+                <li class="list-group-item"><strong>Fecha publicación:</strong>{{material.updated|date:'d'}}-{{material.updated|date:'M'}}-{{material.updated|date:'y'}}</li>
+                <li class="list-group-item"><strong>Duracion </strong>: {{material.duration}} horas</li>
+                <li class="list-group-item"><strong>Categoria</strong>: Technology</li>
+                <li class="list-group-item"><strong>Nivel </strong>: {{material.nivel}}</li>
+                {% if material.persona.imge %}               
+                <li class="list-group-item text-center"><img src="{{material.persona.imge.url}}" width="78" alt="..." />
+                    <p class="text-muted mb-0 mt-4">Contacto</p><a class="text-info" href="mailto:{{material.persona.mail}}">{{material.persona.mail}}</a>
+                </li>
+                {% else %}
+                <li class="list-group-item text-center"><p class="text-muted mb-0 mt-4">Contacto</p><a class="text-info" href="mailto:{{material.persona.mail}}">{{material.persona.mail}}</a>
+                {% endif %} </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of .container-->
+
+  </section>
+  {% endblock%} 

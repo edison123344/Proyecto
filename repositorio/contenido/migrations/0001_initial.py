@@ -2,6 +2,7 @@
 
 import ckeditor.fields
 from django.db import migrations, models
+import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
@@ -9,23 +10,24 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
+        ('material', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Material',
+            name='Contenido',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200, verbose_name='Titulo de la materia')),
+                ('name', models.CharField(max_length=200, verbose_name='Tipo del Contenido')),
                 ('descripcion', ckeditor.fields.RichTextField(verbose_name='Descripcion')),
-                ('image', models.ImageField(blank=True, null=True, upload_to='materia', verbose_name='Imagen')),
                 ('created', models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creación')),
                 ('updated', models.DateTimeField(auto_now=True, verbose_name='Fecha de edición')),
+                ('material', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='material.material', verbose_name='Autor')),
             ],
             options={
-                'verbose_name': 'material',
-                'verbose_name_plural': 'materiales',
-                'ordering': ['title'],
+                'verbose_name': 'tipocontenido',
+                'verbose_name_plural': 'tiposcontenidos',
+                'ordering': ['name'],
             },
         ),
     ]
