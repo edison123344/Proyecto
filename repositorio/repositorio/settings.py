@@ -37,10 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'nested_admin',
     'ckeditor',
     'persona',
     'material',
     'contenido',
+    'documento',
     'core',
     'django_filters',
 ]

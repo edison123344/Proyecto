@@ -33,24 +33,24 @@
         </div>
         <div class="col-md-6"><img class="w-100" src="{{material.image.url}}" alt="..." />
           <h1 class="my-4">Description</h1>
-          {{material.descripcion|safe}}
+          {{material.description|safe}}
     
           
         </div>
         <div class="col-md-3">
           <div class="card">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong>Autor</strong>: {{material.persona}}</li>
+                <li class="list-group-item"><strong>Autor</strong>: {{material.person}}</li>
                 <li class="list-group-item"><strong>Fecha publicación:</strong>{{material.updated|date:'d'}}-{{material.updated|date:'M'}}-{{material.updated|date:'y'}}</li>
                 <li class="list-group-item"><strong>Duracion </strong>: {{material.duration}} horas</li>
                 <li class="list-group-item"><strong>Categoria</strong>: Technology</li>
-                <li class="list-group-item"><strong>Nivel </strong>: {{material.nivel}}</li>
-                {% if material.persona.imge %}               
-                <li class="list-group-item text-center"><img src="{{material.persona.imge.url}}" width="78" alt="..." />
-                    <p class="text-muted mb-0 mt-4">Contacto</p><a class="text-info" href="mailto:{{material.persona.mail}}">{{material.persona.mail}}</a>
+                <li class="list-group-item"><strong>Nivel </strong>: {{material.level}}</li>
+                {% if material.person.image %}               
+                <li class="list-group-item text-center"><img src="{{material.person.image.url}}" width="78" alt="..." />
+                    <p class="text-muted mb-0 mt-4">Contacto</p><a class="text-info" href="mailto:{{material.person.mail}}">{{material.person.mail}}</a>
                 </li>
                 {% else %}
-                <li class="list-group-item text-center"><p class="text-muted mb-0 mt-4">Contacto</p><a class="text-info" href="mailto:{{material.persona.mail}}">{{material.persona.mail}}</a>
+                <li class="list-group-item text-center"><p class="text-muted mb-0 mt-4">Contacto</p><a class="text-info" href="mailto:{{material.person.mail}}">{{material.person.mail}}</a>
                 {% endif %} </li>
             </ul>
           </div>

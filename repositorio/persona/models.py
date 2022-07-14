@@ -24,8 +24,8 @@ class Persona(models.Model):
     name = models.CharField(max_length=200,verbose_name="Nombre")
     lastname = models.CharField(max_length=200,verbose_name="Apellido")
     mail = models.CharField(max_length=200,verbose_name="Correo" ,null=True, blank=True)
-    imge=models.ImageField(verbose_name="Imagen Docente", upload_to="persona", null=True, blank=True)
-    titulo = models.ForeignKey(Titulo, verbose_name="Titulo", on_delete=models.CASCADE)
+    image=models.ImageField(verbose_name="Imagen Docente", upload_to="persona", null=True, blank=True)
+    title = models.ForeignKey(Titulo, verbose_name="Titulo", on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
 
