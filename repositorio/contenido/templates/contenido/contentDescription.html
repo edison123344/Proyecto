@@ -40,10 +40,14 @@
         <div class="col-md-3">
           <div class="card">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong>Autor</strong>: {{material.person}}</li>
+                <li class="list-group-item"><strong>Autor</strong>:<a class="text-info" href="{%url 'list' %}?buscar={{material.person}}">{{material.person}}</a></li>
                 <li class="list-group-item"><strong>Fecha publicación:</strong>{{material.updated|date:'d'}}-{{material.updated|date:'M'}}-{{material.updated|date:'y'}}</li>
                 <li class="list-group-item"><strong>Duracion </strong>: {{material.duration}} horas</li>
-                <li class="list-group-item"><strong>Categoria</strong>: Technology</li>
+                <li class="list-group-item"><strong>Categoria</strong>: 
+                  {% for tema in material.tema.all %}   
+                    <br><a class="text-info" href="{%url 'list' %}?buscar={{tema.title}}">{{tema.title}}</a></br>
+                  {% endfor %}
+                  </li>
                 <li class="list-group-item"><strong>Nivel </strong>: {{material.level}}</li>
                 {% if material.person.image %}               
                 <li class="list-group-item text-center"><img src="{{material.person.image.url}}" width="78" alt="..." />

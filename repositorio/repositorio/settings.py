@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'material',
     'contenido',
     'documento',
+    'temas',
     'core',
     'django_filters',
 ]

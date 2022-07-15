@@ -25,7 +25,7 @@
               <div class="card-body">
                 <div class="row flex-center gx-0">
                   <div class="col-lg-4 col-xl-2 text-center text-xl-start"><img src="{% static 'core/assets/img/gallery/searching.png'%}" width="20" alt="..." /></div>
-                  <form class="d-flex my-3 d-block" action="#" method="GET" id="buscar" >
+                  <form class="d-flex my-3 d-block" action="{% url 'list' %}" method="GET" id="buscar" >
                     <input class="form-control" type="text" placeholder="Buscar...."  name="buscar"  id="buscar"></input>
                     <button class="btn btn-outline-primary" type="submit" value="buscar">Buscar</button>        
                   </form>
@@ -44,9 +44,14 @@
           <div class="row ">
             <div class="col-lg-2 ">
               <div class="card">
-                <div class="card-body px-4 py-6 py-md-5 py-lg-6">
-                  <p class="text-muted mb-2 my-md-3">Temas Relacionados</p>
-                  <hr class="border border-1" />
+                <div class="card-body ">
+                  <h5 class="my-3 text-center">Temas Relacionados</h5>
+                  <ul class="list-group list-group-flush">
+                    {% for tema in temas.all %} 
+                      <li class="list-group-item"><a class="text-info" href="{%url 'list' %}?buscar={{tema.title}}">{{tema.title}}</a></li>
+                    {% endfor %}
+                    
+                  </ul>
                   
                 </div>
               </div>
@@ -55,21 +60,26 @@
               <div class="row">
 
                 {% for material in materiales.all %}       
-
                 <div class="col-md-4 mb-4">
-                  <div class="card h-100"><a class="text-muted fs--1 stretched-link text-decoration-none" href="{% url 'contentDescription' material.id %}"><img class="card-img-top w-100" src="{{material.image.url}}" alt="courses" /></a>
-                    <div class="card-body">
-                      <h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">{{material.title}}</h5>
+                  <div class="card h-100"><a class="text-muted fs--1 text-decoration-none" href="{% url 'contentDescription' material.id %}"><img class="card-img-top w-100" src="{{material.image.url}}" alt="courses" /></a>
+                    <div class="card-body ">
+                      <a class="text-muted fs--1 text-decoration-none" href="{% url 'contentDescription' material.id %}"><h5 class="font-sans-serif fw-bold fs-md-0 fs-lg-1">{{material.title}}</h5></a>
                       <h6>Hecho Por:</h6>
-                      <a  href="#">{{material.person}} </a>
+                      <a class="text-info" href="{%url 'list' %}?buscar={{material.person}}">{{material.person}}</a>
                       <h6>Fecha publicación:</h6>
                       <p class="text-muted fs--1">{{material.updated|date:'d'}}-{{material.updated|date:'M'}}-{{material.updated|date:'y'}}</p>
                     </div>
-                    <h6>Temas relacionados:</h6>
                     
+                    <div class="card-body">
+                      <h6>Temas relacionados:</h6>
+                      <ul class="list-group list-group-flush">
+                        {% for tema in material.tema.all %}   
+                          <li class="list-group-item"><a class="text-info" href="{%url 'list' %}?buscar={{tema.title}}">{{tema.title}}</a></li>
+                        {% endfor %}                     
+                      </ul>
+                    </div>
                   </div>
-                </div>
-                
+                </div>   
                 {% endfor %}
               </div>
             </div>

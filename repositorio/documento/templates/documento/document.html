@@ -39,6 +39,7 @@
                       <h3 class="my-1">{{documento.name}}</h3>
                       {{documento.uploadedFile.url}}
                       <div class="col-lg-12 card">
+                        <iframe width="560" height="315" target="_parent" src="{{documento.uploadedFile.url}}/override-http-headers-default-settings-x-frame-options" type="application/pdf"></iframe>
                         <embed src="{{documento.uploadedFile.url}}" type="application/pdf"  height="800px" />
                         <!-- <iframe  height="800" src="{{documento.uploadedFile.url}}"></iframe>-->
                       </div>
@@ -48,7 +49,7 @@
                 <div class="col-md-3">
                   <div class="card">
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item"><strong>Autor</strong>:  {{documento.content.material.person}}</li>
+                      <li class="list-group-item"><strong>Autor</strong>:<a class="text-info" href="{%url 'list' %}?buscar={{documento.content.material.person}}">{{documento.content.material.person}}</a></li>
                       <li class="list-group-item"><strong>Fecha publicación:</strong>{{documento.content.material.updated|date:'d'}}-{{documento.content.material.updated|date:'M'}}-{{documento.content.material.updated|date:'y'}}</li>
                       <li class="list-group-item"><strong>Duracion </strong>: {{documento.content.material.duration}} horas</li>
                       <li class="list-group-item"><strong>Categoria</strong>: Technology</li>
