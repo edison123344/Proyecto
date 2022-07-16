@@ -15,7 +15,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
      path('_nested_admin/', include('nested_admin.urls')),
 ]
-#if settings.DEBUG:
-   # from django.conf.urls.static import static
-   # urlpatterns += static(
-       # settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+admin.site.site_header="REPGNU"
+admin.site.index_title="Panel de Administrador"
+admin.site.site_title="REPGNU"
