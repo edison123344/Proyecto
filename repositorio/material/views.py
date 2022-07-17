@@ -9,7 +9,7 @@ def home(request):
    materiales = Material.objects.all()
    temas = Tema.objects.all
    return render(request,"material/home.html",{'materiales':materiales,'temas':temas})
-
+#Corregir
 def list(request):
    busqueda =request.GET.get('buscar') 
    temasGeneral = Tema.objects.all

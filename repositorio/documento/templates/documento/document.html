@@ -39,7 +39,7 @@
                       <h3 class="my-1">{{documento.name}}</h3>
                       {{documento.uploadedFile.url}}
                       <div class="col-lg-12 card">
-                        <iframe width="560" height="315" target="_parent" src="{{documento.uploadedFile.url}}/override-http-headers-default-settings-x-frame-options" type="application/pdf"></iframe>
+  
                         <embed src="{{documento.uploadedFile.url}}" type="application/pdf"  height="800px" />
                         <!-- <iframe  height="800" src="{{documento.uploadedFile.url}}"></iframe>-->
                       </div>

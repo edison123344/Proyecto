@@ -4,6 +4,7 @@ from django.contrib import admin
 from .models import Material
 from contenido.models import Contenido
 from documento.models import Documento
+from persona.models import Persona
 # Register your models here.
 from nested_admin import NestedTabularInline, NestedModelAdmin
 
@@ -25,5 +26,5 @@ class MaterialAdmin(NestedModelAdmin):
   search_fields=('title',)
   inlines=[ContenidoInline,]
 
-  #list_editable = ['title','persona']
+  #list_editable = ['title','person']
   
