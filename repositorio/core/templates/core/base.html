@@ -8,7 +8,7 @@
         <!-- ===============================================-->
         <!--    Document Title-->
         <!-- ===============================================-->
-        <title> PepGNU </title>
+        <title>RAep</title>
 
         <!-- ===============================================-->
         <!--    Favicons-->
@@ -31,13 +31,13 @@
         <!-- ===============================================-->
         <main class="main" id="top">
           <nav class="navbar navbar-expand-lg navbar-light sticky-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
-            <div class="container"><a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'core/assets/img/gallery/logo.png'%}" height="80" alt="logo" />RepGNU</a>
+            <div class="container"><a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'core/assets/img/gallery/Logo.png'%}" height="80" alt="logo" /></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
               <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
-                  <li class="nav-item px-2"><a class="nav-link active" aria-current="page" href="{% url 'home' %}">Inicio</a></li>
-                  <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'about' %}">Acerca de </a></li>
-                  <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'contac' %}">Contacto</a></li>
+                  <li class="nav-item px-2 nav-link"><a class="nav-link {% if request.path == '/' %}disabled{% endif %}" aria-current="page" href="{% url 'home' %}">Inicio</a></li>
+                  <li class="nav-item px-2 nav-link"><a class="nav-link {% if request.path == '/core/about' %}disabled{% endif %}" aria-current="page" href="{% url 'about' %}">Acerca de </a></li>
+                  <li class="nav-item px-2 nav-link"><a class="nav-link {% if request.path == '/core/contac' %}disabled{% endif %}" aria-current="page" href="{% url 'contac' %}">Contacto</a></li>
                 </ul><a class="btn btn-primary order-1 order-lg-0" href="/admin/">Sign Up</a>
             
                 
@@ -49,7 +49,7 @@
     <section class="bg-secondary">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-sm-12 col-lg-6 mb-4 order-0 order-sm-0"><a class="text-decoration-none" href="#"><img src="{% static 'core/assets/img/gallery/logo.png'%}" height="70" alt="" /></a>
+          <div class="col-12 col-sm-12 col-lg-6 mb-4 order-0 order-sm-0"><a class="text-decoration-none" href="#"><img src="{% static 'core/assets/img/gallery/Logo.png'%}" height="70" alt="" /></a>
             <p class="text-light my-4"> <i class="fas fa-map-marker-alt me-3"></i><span class="text-light"> cuenca,Ecuador &nbsp;</span><a class="text-light" href="tel:+604-680-9785">+09-999-9999</a><br />EC</p>
             <p class="text-light"> <i class="fas fa-envelope me-3"> </i><a class="text-light" href="mailto:vctung@outlook.com">edisonezequiel@gmail.com </a></p>
             <p class="text-light"> <i class="fas fa-phone-alt me-3"></i><a class="text-light" href="tel:1-800-800-2299">1-800-9999-9999 (Support)</a></p>
@@ -71,13 +71,11 @@
       <div class="container bg-primary">
         <div class="row justify-content-md-between justify-content-evenly py-4">
           <div class="col-12 col-sm-8 col-md-6 col-lg-auto text-center text-md-start">
-            <p class="fs--1 my-2 fw-bold">RepGNU &copy; T.E.H, 2022</p>
+            <p class="fs--1 my-2 fw-bold">RAep &copy; T.E.H, 2022</p>
           </div>
              <div class="col-auto ms-md-auto order-md-2 d-none d-sm-block">
             <ul class="list-unstyled list-inline my-2">
-              <li class="list-inline-item"><a class="text-decoration-none" href="#!"><i class="fab fa-facebook-f text-900"></i></a></li>
               <li class="list-inline-item"><a class="text-decoration-none" href="#!"><i class="fab fa-linkedin text-900"></i></a></li>
-              <li class="list-inline-item"><a class="text-decoration-none" href="#!"><i class="fab fa-twitter text-900"></i></a></li>
               <li class="list-inline-item"><a class="text-decoration-none" href="#!"><i class="fab fa-github text-900"> </i></a></li>
             </ul>
           </div>

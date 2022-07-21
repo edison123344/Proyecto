@@ -37,11 +37,11 @@
                   <div class="container">
                     <div class="row">
                       <h3 class="my-1">{{documento.name}}</h3>
-                      {{documento.uploadedFile.url}}
+                     
                       <div class="col-lg-12 card">
   
-                        <embed src="{{documento.uploadedFile.url}}" type="application/pdf"  height="800px" />
-                        <!-- <iframe  height="800" src="{{documento.uploadedFile.url}}"></iframe>-->
+                        <!-- <embed src="{{documento.uploadedFile.url}}" type="application/pdf" &salida=incrustar height="800px " target="_blank"/>-->
+                        <iframe  height="800" src="{{documento.uploadedFile.url}}?rs:embed=true" frameborder='no' scrolling='no'></iframe>
                       </div>
                     </div>
                   </div>
