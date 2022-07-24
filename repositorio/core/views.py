@@ -4,5 +4,5 @@ from .models import AcercaDe
 def about(request):
    acercaDe = AcercaDe.objects.all
    return render(request,"core/about.html",{'acercaDe':acercaDe})
-def contac(request):
-   return render(request,"core/contac.html")
+def terms (request):
+   return render(request,"core/privacy-and-terms-of-use.html")

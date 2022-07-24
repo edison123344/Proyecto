@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'contenido',
     'documento',
     'temas',
+    'contac',
     'core',
     'django_filters',
 ]
@@ -83,7 +84,7 @@ WSGI_APPLICATION = 'repositorio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'repositorio',
@@ -93,13 +94,13 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
-"""DATABASES = {
+"""
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}"""
+}
 
 
 # Password validation
@@ -159,3 +160,8 @@ CKEDITOR_CONFIGS = {
         ]
     }
 }
+#mail
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '9fe030791f09f3'
+EMAIL_HOST_PASSWORD = 'f67a2ef29213c1'
+EMAIL_PORT = '2525'

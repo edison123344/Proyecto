@@ -14,10 +14,9 @@ def list(request):
    busqueda =request.GET.get('buscar') 
    temasGeneral = Tema.objects.all
    if busqueda:
-      temas=Tema.objects.filter(Q(title__icontains=busqueda)
-      ).distinct()
       material=Material.objects.filter(Q(title__icontains=busqueda)|
-      Q(person__name__icontains=busqueda)
+      Q(person__name__icontains=busqueda)|
+      Q(tema__title__icontains=busqueda)
       ).distinct()
-   return render(request,"material/list.html",{'temas':temas,'materiales':material,'teamasGeneral':temasGeneral})
+   return render(request,"material/list.html",{'materiales':material,'teamasGeneral':temasGeneral})
    

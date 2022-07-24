@@ -1,8 +1,6 @@
 {% extends 'core/base.html'%}
- 
 {% block content%}  
 <section class="pb-11 pt-7 bg-600">
-
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -12,62 +10,71 @@
     </div>
   </div>
   <!-- end of .container-->
-
 </section>
-   <!-- ============================================-->
-      <!-- <section> begin ============================-->
-        <section style="margin-top:-21.5rem">
-
-            <div class="container">
-              <div class="row">
-                <div class="col-md-3">
-                  <div class="card">
-                    <h5 class="my-3 text-center">Recursos</h5>
-                    <ul class="list-group list-group-flush">
-                      
-                      <li class="list-group-item"><a class="text-info" href="{% url 'contentDescription' documento.content.material.id %}">Informacion</a></li>
-                      {% for contenido in documento.content.material.get_posts.all %}   
-                        <li class="list-group-item"><a class="text-info" href="{% url 'content' contenido.id %}">{{contenido.name}}</a></li>
-                      {% endfor %}
-                      
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="container">
-                    <div class="row">
-                      <h3 class="my-1">{{documento.name}}</h3>
-                     
-                      <div class="col-lg-12 card">
-  
-                        <!-- <embed src="{{documento.uploadedFile.url}}" type="application/pdf" &salida=incrustar height="800px " target="_blank"/>-->
-                        <iframe  height="800" src="{{documento.uploadedFile.url}}?rs:embed=true" frameborder='no' scrolling='no'></iframe>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="card">
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item"><strong>Autor</strong>:<a class="text-info" href="{%url 'list' %}?buscar={{documento.content.material.person}}">{{documento.content.material.person}}</a></li>
-                      <li class="list-group-item"><strong>Fecha publicación:</strong>{{documento.content.material.updated|date:'d'}}-{{documento.content.material.updated|date:'M'}}-{{documento.content.material.updated|date:'y'}}</li>
-                      <li class="list-group-item"><strong>Duracion </strong>: {{documento.content.material.duration}} horas</li>
-                      <li class="list-group-item"><strong>Categoria</strong>: Technology</li>
-                      <li class="list-group-item"><strong>Nivel </strong>: {{documento.content.material.level}}</li>
-                      {% if documento.content.material.person.image %}               
-                      <li class="list-group-item text-center"><img src="{{documento.content.material.person.image.url}}" width="78" alt="..." />
-                        <p class="text-muted mb-0 mt-4">Contacto</p><a class="text-info" href="mailto:{{documento.content.material.person.mail}}">{{documento.content.material.person.mail}}</a>
-                      </li>
-                      {% else %}
-                      <li class="list-group-item text-center"><p class="text-muted mb-0 mt-4">Contacto</p><a class="text-info" href="mailto:{{documento.content.material.person.mail}}">{{documento.content.material.person.mail}}</a></li>
-                      {% endif %} 
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- end of .container-->
-          </section>
-          <!-- <section> close ============================-->
-          <!-- ============================================-->
+<section style="margin-top:-21.5rem">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card">
+          <h4 class="text-center">Recursos</h4>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <a class="text-info" href="{% url 'contentDescription' documento.content.material.id %}">Informacion</a>
+            </li>
+            {% for contenido in documento.content.material.get_posts.all %}   
+              <li class="list-group-item">
+                <a class="text-info" href="{% url 'content' contenido.id %}">{{contenido.name}}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <h2>{{documento.name}}</h2>
+          <iframe  height="800" src="{{documento.uploadedFile.url}}?rs:embed=true" frameborder='no' scrolling='no'></iframe>
+          <p xmlns:cc="http://creativecommons.org/ns#" >Este trabajo está bajo licencia 
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/?ref= selector-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">
+              CC BY-NC-SA 4.0<img style="height:22px!important;margin-left:3px ;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1">
+              <img style="height:22px!important;margin-left:3px;vertical-align:text -abajo;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1">
+              <img style="height:22px!important;margin-left:3px;vertical-align:text -abajo;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"> 
+              <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1">
+            </a>
+          </p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Autor</strong>:
+              <a class="text-info" href="{%url 'list' %}?buscar={{documento.content.material.person}}">{{documento.content.material.person}}</a>
+            </li>
+            <li class="list-group-item"><strong>Fecha publicación:</strong>
+              {{documento.content.material.updated|date:'d'}}-{{documento.content.material.updated|date:'M'}}-{{documento.content.material.updated|date:'y'}}
+            </li>
+            <li class="list-group-item"><strong>Duracion:</strong>
+              {{documento.content.material.duration}} horas
+            </li>
+            <li class="list-group-item"><strong>Categoria:</strong>Technology</li>
+            <li class="list-group-item"><strong>Nivel:</strong>{{documento.content.material.level}}</li>
+            {% if documento.content.material.person.image %}               
+              <li class="list-group-item text-center"><img src="{{documento.content.material.person.image.url}}" width="78" alt="..." />
+                <p class="text-muted mb-0 mt-4">Contacto</p>
+                <a class="text-info" href="mailto:{{documento.content.material.person.mail}}">{{documento.content.material.person.mail}}</a>
+              </li>
+            {% else %}
+              <li class="list-group-item text-center">
+                <p class="text-muted mb-0 mt-4">Contacto</p>
+                <a class="text-info" href="mailto:{{documento.content.material.person.mail}}">
+                  {{documento.content.material.person.mail}}
+                </a>
+              </li>
+            {% endif %} 
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- end of .container-->
+  </div>
+</section>
 {% endblock%} 

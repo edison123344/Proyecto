@@ -1,49 +1,44 @@
 {% load static %}
  <!DOCTYPE html>
-    <html lang="es" dir="ltr">
-      <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- ===============================================-->
-        <!--    Document Title-->
-        <!-- ===============================================-->
-        <title>RAep</title>
-
-        <!-- ===============================================-->
-        <!--    Favicons-->
-        <!-- ===============================================-->
-        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'core/assets/img/favicons/logo.png' %}">
-        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'core/assets/img/favicons/logo.png' %}">
-        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'core/assets/img/favicons/logo.png' %}">
-        <link rel="shortcut icon" type="image/x-icon" href="{% static 'core/assets/img/favicons/logo.png' %}">
-        <link rel="manifest" href="{% static 'core/assets/img/favicons/manifest.json'%}">
-        <meta name="msapplication-TileImage" content="{% static 'core/assets/img/favicons/logo.png'%}">
-        <meta name="theme-color" content="#ffffff">
-        <!-- ===============================================-->
-        <!--    Stylesheets-->
-        <!-- ===============================================-->
-        <link href="{% static 'core/assets/css/theme.css'%}" rel="stylesheet" />
-      </head>
-      <body>
-        <!-- ===============================================-->
-        <!--    Main Content-->
-        <!-- ===============================================-->
-        <main class="main" id="top">
-          <nav class="navbar navbar-expand-lg navbar-light sticky-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
-            <div class="container"><a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'core/assets/img/gallery/Logo.png'%}" height="80" alt="logo" /></a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
-              <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
-                  <li class="nav-item px-2 nav-link"><a class="nav-link {% if request.path == '/' %}disabled{% endif %}" aria-current="page" href="{% url 'home' %}">Inicio</a></li>
-                  <li class="nav-item px-2 nav-link"><a class="nav-link {% if request.path == '/core/about' %}disabled{% endif %}" aria-current="page" href="{% url 'about' %}">Acerca de </a></li>
-                  <li class="nav-item px-2 nav-link"><a class="nav-link {% if request.path == '/core/contac' %}disabled{% endif %}" aria-current="page" href="{% url 'contac' %}">Contacto</a></li>
-                </ul><a class="btn btn-primary order-1 order-lg-0" href="/admin/">Sign Up</a>
-            
-                
-              </div>
-            </div>
-          </nav>
+<html lang="es" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RAep</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'core/assets/img/favicons/logo.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'core/assets/img/favicons/logo.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'core/assets/img/favicons/logo.png' %}">
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'core/assets/img/favicons/logo.png' %}">
+  <link rel="manifest" href="{% static 'core/assets/img/favicons/manifest.json'%}">
+  <meta name="msapplication-TileImage" content="{% static 'core/assets/img/favicons/logo.png'%}">
+  <meta name="theme-color" content="#ffffff">
+  <link href="{% static 'core/assets/css/theme.css'%}" rel="stylesheet" />
+</head>
+<body>
+  <main class="main" id="top">
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">
+          <img src="{% static 'core/assets/img/gallery/Logo.png'%}" height="80" alt="logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon">   
+          </span>
+        </button>
+        <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
+            <li class="nav-item px-2 nav-link"><a class="nav-link {% if request.path == '/' %}disabled{% endif %}" aria-current="page" href="{% url 'home' %}">Inicio</a></li>
+            <li class="nav-item px-2 nav-link"><a class="nav-link {% if request.path == '/core/about' %}disabled{% endif %}" aria-current="page" href="{% url 'about' %}">Acerca de </a></li>
+            <li class="nav-item px-2 nav-link"><a class="nav-link {% if request.path == '/core/contac' %}disabled{% endif %}" aria-current="page" href="{% url 'contac' %}">Contacto</a></li>
+          </ul>
+          <a class="btn btn-primary order-1 order-lg-0" href="/admin/">Sign Up</a>   
+        </div>
+        <div class="mt-lg-0" >
+        <img src="{% static 'core/assets/img/gallery/Lg.jpg'%}" height="30" alt="logo" />
+        </div>
+      </div>
+    </nav>
 
           {% block content %}{% endblock %}
     <section class="bg-secondary">
@@ -56,13 +51,21 @@
           </div>
          
           <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
-            <h5 class="lh-lg fw-bold text-light mb-4 font-sans-serif">Informations</h5>
+            <h5 class="lh-lg fw-bold text-light mb-4 font-sans-serif">Contenido</h5>
             <ul class="list-unstyled mb-md-4 mb-lg-0">
               <li class="lh-lg"><a class="text-200" href="{%url 'home'%}">Inicio</a></li>
               <li class="lh-lg"><a class="text-200" href="{%url 'contac'%}">Acerca de</a></li>
               <li class="lh-lg"><a class="text-200" href="{%url 'about'%}">Contacto</a></li>
             </ul>
           </div>
+          <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
+            <h5 class="lh-lg fw-bold text-light mb-4 font-sans-serif">Informations</h5>
+            <ul class="list-unstyled mb-md-4 mb-lg-0">
+              <li class="lh-lg"><a class="text-200" href="{%url 'terms'%}">Privacidad y términos de uso</a></li>
+             
+            </ul>
+          </div>
+
         </div>
       </div>
       <!-- end of .container-->
@@ -71,22 +74,18 @@
       <div class="container bg-primary">
         <div class="row justify-content-md-between justify-content-evenly py-4">
           <div class="col-12 col-sm-8 col-md-6 col-lg-auto text-center text-md-start">
-            <p class="fs--1 my-2 fw-bold">RAep &copy; T.E.H, 2022</p>
+            <p class="fs--1 my-2 fw-bold">RAep &copy; ED.H, 2022</p>
           </div>
              <div class="col-auto ms-md-auto order-md-2 d-none d-sm-block">
             <ul class="list-unstyled list-inline my-2">
-              <li class="list-inline-item"><a class="text-decoration-none" href="#!"><i class="fab fa-linkedin text-900"></i></a></li>
-              <li class="list-inline-item"><a class="text-decoration-none" href="#!"><i class="fab fa-github text-900"> </i></a></li>
+              <li class="list-inline-item"><a class="text-decoration-none" href="https://github.com/edison123344?tab=repositories"><i class="fab fa-linkedin text-900"></i></a></li>
+              <li class="list-inline-item"><a class="text-decoration-none" href="https://ec.linkedin.com/in/edison-hui%C3%B1aizaca-048779173?trk=profile-badge"><i class="fab fa-github text-900"> </i></a></li>
             </ul>
           </div>
         </div>
-      </div>
-      
+      </div>                
     </section>
   </main>
-  <!-- ===============================================-->
-  <!--    JavaScripts-->
-  <!-- ===============================================-->
   <script src="{% static 'core/vendors/@popperjs/popper.min.js' %}"></script>
   <script src="{% static 'core/vendors/bootstrap/bootstrap.min.js' %}"></script>
   <script src="{% static 'core/vendors/is/is.min.js' %}"></script>
@@ -95,7 +94,6 @@
   <script src="{% static 'core/assets/js/theme.js' %}"></script>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Rubik:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
 </body>
-
 </html>
 
 

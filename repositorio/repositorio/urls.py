@@ -5,6 +5,8 @@ from django.conf import settings
 from core import views 
 urlpatterns = [
     # Paths de documento
+    path('', include('contac.urls')),
+    # Paths de documento
     path('', include('documento.urls')),
     # Paths de contenido
     path('', include('contenido.urls')),
