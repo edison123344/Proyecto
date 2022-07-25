@@ -3,15 +3,21 @@
 {% load static%}
 {% block content%}
 <section>
-  <div class="container">   
+  <div class="container">  
+    <div class="row align-items-center">
+    <h5 class="font-sans-serif fw-bold">Acerca de</h5>
+    <h1 class=" text-primary">Descubre mas del proyecto</h1> 
+    </div>
     {% for acerca in acercaDe.all %} 
-      <h1 class="mb-6 text-primary">{{acerca.title}}</h1>
-      <div class="row align-items-center">
-        <div class="col-md-6 col-lg-4 mb-5"><img src="{% static 'core/assets/img/gallery/cta.png' %}" width="280" alt="cta" /></div>
-        <div class="col-md-12 col-lg-8 mb-10">
+    <div class="row align-items-center">
+      <div class="col-md-6 col-lg-4 "><img src="{% static 'core/assets/img/gallery/cta.png' %}" width="200" alt="cta" /></div>
+      <div class="col-md-12 col-lg-8">
+        <div class="bg-faded rounded p-5">
+          <h1 class=" text-primary">{{acerca.title}}</h1>
           {{acerca.description|safe}}
         </div>
       </div>
+    </div>
     {% endfor %}
   </div>
   <!-- end of .container-->

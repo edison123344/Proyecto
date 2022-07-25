@@ -6,7 +6,9 @@ from ckeditor.fields import RichTextField
 from persona.models import Persona
 # Create your models here.
 class Material(models.Model):
-    title = models.CharField(max_length=200,verbose_name="Titulo de la materia")
+    
+
+    title = models.CharField(max_length=200,verbose_name="Titulo de la materia" )
     duration=models.CharField(max_length=200,verbose_name="Duracion de la materia",null=True, blank=True)
     level=models.CharField(max_length=200,verbose_name="Nivel de la materia",null=True, blank=True)
     description = RichTextField( verbose_name="Descripcion")
