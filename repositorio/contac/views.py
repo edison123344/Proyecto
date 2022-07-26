@@ -31,4 +31,4 @@ def contac(request):
                 # Algo no ha ido bien, redireccionamos a FAIL
                 return redirect(reverse('contac')+"?fail")
     return render(request,"contac/contac.html",{'form':contac_form})
-        #return render(request, "contact/contact.html",{'form':contact_form})
+      
