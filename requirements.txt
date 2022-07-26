@@ -2,7 +2,7 @@ asgiref==3.5.2
 astroid==2.11.5
 colorama==0.4.4
 dill==0.3.5.1
-Django==4.0.4
+Django==4.0.6
 django-admin-inline-paginator==0.3.0
 django-ckeditor==6.4.1
 django-filter==22.1
